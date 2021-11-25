@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+
 :root{
     --color-main: #001538;
     --color-text: #fff; 
@@ -12,6 +14,12 @@ body{
 
 *{
     background: var(--color-main);
+    font-family: 'Poppins', sans-serif;
+}
+
+.Title{
+    color: var(--color-text);
+    text-align: center;
 }
 
 .buttonContainer{
@@ -25,4 +33,9 @@ body{
 p{
     color: var(--color-text);
     text-align: center;
+}
+
+footer{
+display: flex;
+justify-content: center;
 }
