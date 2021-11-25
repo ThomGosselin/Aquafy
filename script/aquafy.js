@@ -7,5 +7,5 @@ let titlePage = document.querySelector("head title");
 
 console.log(titlePage);
 
-titlePage.textContent = "test";
+titlePage.textContent = "Aquafy | Test du script";
 /*********************************/

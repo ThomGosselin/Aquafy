@@ -17,6 +17,10 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+main{
+    height: 90vh;
+}
+
 .Title{
     color: var(--color-text);
     text-align: center;
