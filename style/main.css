@@ -1,0 +1,28 @@
+:root{
+    --color-main: #001538;
+    --color-text: #fff; 
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+*{
+    background: var(--color-main);
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+
+
+p{
+    color: var(--color-text);
+    text-align: center;
+}
