@@ -1,16 +1,59 @@
 //Déclarations de variable
+let musicInfo = document.querySelector(".musicInfo");
+let audioPlayer = document.querySelector(".audioPlayer");
+audioPlayer.addEventListener("click", playMusic);
+
+let allMusicArray=[
+    {
+        nom = "Drown",
+        src = "url(../music/DylanMathew/D1.mp3)",
+        auteur = "Dylan Matthew",
+        couleurBG = "#fff"
+    },
+    {
+        nom = "Don't Forget",
+        src = "url(../music/DylanMathew/D2.mp3)",
+        auteur = "Dylan Matthew",
+        couleurBG = "#fff"  
+    },
+    {
+        nom = "The Fall",
+        src = "url(../music/DylanMathew/D3.mp3)",
+        auteur = "Dylan Matthew",
+        couleurBG = "#fff"  
+    },
+    {
+        nom = "Midnight In Tokyo",
+        src = "url(../music/DylanMathew/D4.mp3)",
+        auteur = "Dylan Matthew",
+        couleurBG = "#fff"  
+    },
+    {
+        nom = "Anxiety",
+        src = "url(../music/DylanMathew/anxiety.mp3)",
+        auteur = "Dylan Matthew",
+        couleurBG = "#fff"  
+    },
+    {
+        nom = "Saturday Night",
+        src = "url(../music/DylanMathew/SaturdayNight.mp3)",
+        auteur = "Dylan Matthew",
+        couleurBG = "#fff"  
+    },
+
+];
+
+let musicJuiceWrld = [
+
+];
 
 
 
 /* pour le changement de la balise title */
 let titlePage = document.querySelector("head title");
 
-console.log(titlePage);
 
 titlePage.textContent = "Aquafy | Test du script";
-/*********************************/
-
-
 /*********************************/
 
 const bouton = document.querySelector(".btn");
@@ -58,10 +101,14 @@ function loadVisualizer(){
         for(let i=0; i< bufferLenght; i++){
             let item = dataArray[i];
             item = item > 150 ? item / 1.5 : item * 1.25;
-            elements[i].style.transform = `rotateZ(${i * (30 / bufferLenght)}deg) translate(-50%, ${clamp(item,100, 150)}px)`;
+            elements[i].style.transform = `rotateZ(${i * (360 / bufferLenght)}deg) translate(-50%, ${clamp(item,100, 150)}px)`;
         }
     };
     
     update();
     
+}
+
+function playMusic(){
+    console.log("allo");
 }
