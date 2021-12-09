@@ -40,6 +40,30 @@ let allMusicArray=[
         auteur = "Dylan Matthew",
         couleurBG = "#fff"  
     },
+    {
+        nom = "All girls Are the Same",
+        src = "url(../music/Juice/allGirlsAreTheSame.mp3)",
+        auteur = "Juice Wrld",
+        couleurBG = "#e1e1e1"  
+    },
+    {
+        nom = "Intro",
+        src = "url(../music/Juice/intro.mp3)",
+        auteur = "Juice Wrld",
+        couleurBG = "#e1e1e1"  
+    },
+    {
+        nom = "Lean With Me",
+        src = "url(../music/Juice/LeanWitMe.mp3)",
+        auteur = "Juice Wrld",
+        couleurBG = "#e1e1e1"  
+    },
+    {
+        nom = "Lucid Dreams",
+        src = "url(../music/Juice/LucidDreams.mp3)",
+        auteur = "Juice Wrld",
+        couleurBG = "#e1e1e1"  
+    },
 
 ];
 
