@@ -1,7 +1,13 @@
 //Déclarations de variable
+let allArtiste = document.querySelector(".allArtiste");
+console.log(allArtiste);
+/*
 let musicInfo = document.querySelector(".musicInfo");
 let audioPlayer = document.querySelector(".audioPlayer");
+
+
 audioPlayer.addEventListener("click", playMusic);
+allArtiste.addEventListener("click", loadAllArtiste);
 
 let allMusicArray= [
     {
@@ -221,16 +227,24 @@ let artistArray = [
         Album: "Tout les albums"
     },
 ]
+*/
+/*Loader des pages */
+function loadAllArtiste(){
+    localStorage.setItem("test", "allArtiste");
+    let test = localStorage.getItem("test");
+    console.log(test);
+}
+
 
 
 /* pour le changement de la balise title */
-let titlePage = document.querySelector("head title");
+/*let titlePage = document.querySelector("head title");
 
 
 titlePage.textContent = "Aquafy | Test du script";
-/*********************************/
+/****************Visualizer*****************/
 
-const bouton = document.querySelector(".btn");
+/*const bouton = document.querySelector(".btn");
 const audioElement = document.querySelector("audio");
 const visualizer = document.querySelector(".visualizer");
 
@@ -275,7 +289,7 @@ function loadVisualizer(){
         for(let i=0; i< bufferLenght; i++){
             let item = dataArray[i];
             item = item > 150 ? item / 1.5 : item * 1.25;
-            elements[i].style.transform = `rotateZ(${i * (360 / bufferLenght)}deg) translate(-50%, ${clamp(item,100, 150)}px)`;
+            elements[i].style.transform = `rotateZ(${i * (360 / bufferLenght)}deg) translate(-50%, ${clamp(item,75, 125)}px)`;
         }
     };
     
@@ -285,4 +299,4 @@ function loadVisualizer(){
 
 function playMusic(){
     console.log("allo");
-}
+}*/
