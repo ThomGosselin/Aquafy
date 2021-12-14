@@ -1,5 +1,6 @@
 //Déclarations de variable
 let allArtiste = document.querySelector(".allArtiste");
+localStorage.setItem("test", allArtiste);
 console.log(allArtiste);
 /*
 let musicInfo = document.querySelector(".musicInfo");
@@ -230,7 +231,6 @@ let artistArray = [
 */
 /*Loader des pages */
 function loadAllArtiste(){
-    localStorage.setItem("test", "allArtiste");
     let test = localStorage.getItem("test");
     console.log(test);
 }
