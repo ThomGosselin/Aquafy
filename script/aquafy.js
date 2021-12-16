@@ -1,7 +1,14 @@
 //Déclarations de variable
-let allArtiste = document.querySelector(".allArtiste");
-localStorage.setItem("test", allArtiste);
-console.log(allArtiste);
+const allSongs = document.querySelector(".allmusic");
+console.log(allSongs);
+localStorage.setItem("allsongs", allSongs);
+
+allSongs.addeventListener("click",test());
+
+function test(){
+    let test =  localStorage.getItem("allsongs");
+    console.log(test);
+}
 
 let musicInfo = document.querySelector(".musicInfo");
 let audioPlayer = document.querySelector(".audioPlayer");
@@ -246,6 +253,7 @@ titlePage.textContent = "Aquafy | Test du script";
 
 const bouton = document.querySelector(".btn");
 const audioElement = document.querySelector("audio");
+console.log(audioElement);
 const visualizer = document.querySelector(".visualizer");
 
 bouton.addEventListener("click", e =>{
@@ -289,7 +297,7 @@ function loadVisualizer(){
         for(let i=0; i< bufferLenght; i++){
             let item = dataArray[i];
             item = item > 150 ? item / 1.5 : item * 1.25;
-            elements[i].style.transform = `rotateZ(${i * (360 / bufferLenght)}deg) translate(-50%, ${clamp(item,75, 125)}px)`;
+            elements[i].style.transform = `rotateZ(${i * (400 / bufferLenght)}deg) translate(-50%, ${clamp(item,75, 125)}px)`;
         }
     };
     
