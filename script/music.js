@@ -1,6 +1,6 @@
 let musicContainer = document.querySelector(".musicContainer");
 
-var lastclickBtn = sessionStorage.getItem("lastclick");
+var lastclickBtn = sessionStorage.getItem("artistClick");
 console.log(lastclickBtn);
 if (lastclickBtn =="allMusic"){
     loadAllMusic();
@@ -16,91 +16,104 @@ function loadAllMusic(){
     let allMusicArray= [
         {
             nom : "Drown",
-            src : "url(../music/DylanMathew/D1.mp3)",
+            nomForCall:"Drown",
+            src : "url(../music/allSongs/Drown.mp3)",
             auteur : "Dylan Matthew",
             couleurBG : "#fff",
             selector : "dylan1"
         },
         {
             nom : "Don't Forget",
-            src : "url(../music/DylanMathew/D2.mp3)",
+            nomForCall:"DontForget",
+            src : "url(../music/allSongs/DontForget.mp3)",
             auteur : "Dylan Matthew",
             couleurBG : "#fff",
             selector : "dylan2"  
         },
         {
             nom : "The Fall",
-            src : "url(../music/DylanMathew/D3.mp3)",
+            nomForCall:"TheFall",
+            src : "url(../music/allSongs/TheFall.mp3)",
             auteur : "Dylan Matthew",
             couleurBG : "#fff",
             selector : "dylan3" 
         },
         {
             nom : "Midnight In Tokyo",
-            src : "url(../music/DylanMathew/D4.mp3)",
+            nomForCall:"MidnightInTokyo",
+            src : "url(../music/allSongs/MidnightInTokyo.mp3)",
             auteur : "Dylan Matthew",
             couleurBG : "#fff",
             selector : "dylan4"  
         },
         {
             nom : "Anxiety",
-            src : "url(../music/DylanMathew/anxiety.mp3)",
+            nomForCall:"Anxiety",
+            src : "url(../music/allSongs/anxiety.mp3)",
             auteur : "Dylan Matthew",
             couleurBG : "#fff",
             selector : "dylan5"  
         },
         {
             nom : "Saturday Night",
-            src : "url(../music/DylanMathew/SaturdayNight.mp3)",
+            nomForCall:"SaturdayNight",
+            src : "url(../music/allSongs/SaturdayNight.mp3)",
             auteur : "Dylan Matthew",
             couleurBG : "#fff",
             selector : "dylan6"  
         },
         {
             nom : "All girls Are the Same",
-            src : "url(../music/Juice/allGirlsAreTheSame.mp3)",
+            nomForCall:"allGirlsAreTheSame",
+            src : "url(../music/allSongs/allGirlsAreTheSame.mp3)",
             auteur : "Juice Wrld",
             couleurBG : "#e1e1e1", 
             selector : "juice1" 
         },
         {
             nom : "Intro",
-            src : "url(../music/Juice/intro.mp3)",
+            nomForCall:"Intro",
+            src : "url(../music/allSongs/intro.mp3)",
             auteur : "Juice Wrld",
             couleurBG : "#e1e1e1",
             selector : "juice2"  
         },
         {
             nom : "Lean With Me",
-            src : "url(../music/Juice/LeanWitMe.mp3)",
+            nomForCall:"LeanWithMe",
+            src : "url(../music/allSongs/LeanWitMe.mp3)",
             auteur : "Juice Wrld",
             couleurBG : "#e1e1e1",
             selector : "juice3"  
         },
         {
             nom : "Lucid Dreams",
-            src : "url(../music/Juice/LucidDreams.mp3)",
+            nomForCall:"LucidDreams",
+            src : "url(../music/allSongs/LucidDreams.mp3)",
             auteur : "Juice Wrld",
             couleurBG : "#e1e1e1",
             selector : "juice4"  
         },
         {
             nom : "Giants",
-            src : "url(../music/Juice/Giants.mp3)",
+            nomForCall:"Giants",
+            src : "url(../music/allSongs/Giants.mp3)",
             auteur : "No Copyright Songs",
             couleurBG : "#a1a1a1",
             selector : "ncs1"  
         },
         {
             nom : "Island",
-            src : "url(../music/Juice/Island.mp3)",
+            nomForCall:"Island",
+            src : "url(../music/allSongs/Island.mp3)",
             auteur : "No Copyright Songs",
             couleurBG : "#a1a1a1",
             selector : "ncs2"  
         },
         {
             nom : "Lune",
-            src : "url(../music/Juice/Lune.mp3)",
+            nomForCall:"Lune",
+            src : "url(../music/allSongs/Lune.mp3)",
             auteur : "No Copyright Songs",
             couleurBG : "#a1a1a1",
             selector : "ncs3"  
@@ -108,9 +121,25 @@ function loadAllMusic(){
     
     ];
 
-    for(i = 1;i < allMusicArray.length;i++){
-        console.log("music"+[i]);
-    }
+    for(i = 1;i < allMusicArray.length;i++) {
+    let newDivMusic = document.createElement("div");
+    let linkToListen = document.createElement("a");
+    let nomArtist = document.createElement("h3");
+    newDivMusic.classList.add("music");
+    linkToListen.href="ecoute.html";
+    linkToListen.classList.add(allMusicArray[i].nomForCall);
+    linkToListen.textContent = allMusicArray[i].nomForCall;
+    nomArtist.textContent = allMusicArray[i].auteur;
+    musicContainer.appendChild(newDivMusic);
+    newDivMusic.appendChild(linkToListen);
+    newDivMusic.appendChild(nomArtist);
+    console.log()
+    let ClickMusic = document.querySelector(`.${linkToListen.className}`);
+    ClickMusic.addEventListener("click",function(){
+        let MusicSrc = "../music/allSongs/"+linkToListen.className+".mp3";
+        sessionStorage.setItem("musicClick",MusicSrc);
+    });
+}
 }
 
 
@@ -182,7 +211,7 @@ function loadDylan(){
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
             let MusicSrc = "../music/DylanMathew/"+linkToListen.className+".mp3";
-            sessionStorage.setItem("lastclick",MusicSrc);
+            sessionStorage.setItem("musicClick",MusicSrc);
         });
     }
 }
@@ -237,7 +266,7 @@ function loadJuice(){
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
             let MusicSrc = "../music/Juice/"+linkToListen.className+".mp3";
-            sessionStorage.setItem("lastclick",MusicSrc);
+            sessionStorage.setItem("musicClick",MusicSrc);
         });
     }
     }
@@ -285,7 +314,7 @@ function loadNCS(){
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
             let MusicSrc = "../music/NCS/"+linkToListen.className+".mp3";
-            sessionStorage.setItem("lastclick",MusicSrc);
+            sessionStorage.setItem("musicClick",MusicSrc);
         });
     }
 }

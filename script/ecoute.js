@@ -1,4 +1,4 @@
-var lastclickBtn = sessionStorage.getItem("lastclick");
+var lastclickBtn = sessionStorage.getItem("musicClick");
 console.log(lastclickBtn);
 
 

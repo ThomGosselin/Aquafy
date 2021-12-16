@@ -8,7 +8,7 @@ allArtist.addEventListener("click",function(){
 });
 
 allMusic.addEventListener("click",function(){
-    sessionStorage.setItem("lastclick","allMusic");
+    sessionStorage.setItem("artistClick","allMusic");
  });
 
 

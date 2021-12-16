@@ -6,11 +6,11 @@ let clickJuice = document.querySelector(".clickJuice");
 let clickNCS = document.querySelector(".clickNCS");
 
 clickDylan.addEventListener("click",function(){
-    sessionStorage.setItem("lastclick","Dylan");
+    sessionStorage.setItem("artistClick","Dylan");
  });
  clickJuice.addEventListener("click",function(){
-    sessionStorage.setItem("lastclick","Juice");
+    sessionStorage.setItem("artistClick","Juice");
  });
  clickNCS.addEventListener("click",function(){
-    sessionStorage.setItem("lastclick","NCS");
+    sessionStorage.setItem("artistClick","NCS");
  });
