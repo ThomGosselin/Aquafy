@@ -2,13 +2,13 @@
 let allArtiste = document.querySelector(".allArtiste");
 localStorage.setItem("test", allArtiste);
 console.log(allArtiste);
-/*
+
 let musicInfo = document.querySelector(".musicInfo");
 let audioPlayer = document.querySelector(".audioPlayer");
 
 
 audioPlayer.addEventListener("click", playMusic);
-allArtiste.addEventListener("click", loadAllArtiste);
+//allArtiste.addEventListener("click", loadAllArtiste);
 
 let allMusicArray= [
     {
@@ -228,7 +228,7 @@ let artistArray = [
         Album: "Tout les albums"
     },
 ]
-*/
+
 /*Loader des pages */
 function loadAllArtiste(){
     let test = localStorage.getItem("test");
@@ -238,13 +238,13 @@ function loadAllArtiste(){
 
 
 /* pour le changement de la balise title */
-/*let titlePage = document.querySelector("head title");
+let titlePage = document.querySelector("head title");
 
 
 titlePage.textContent = "Aquafy | Test du script";
 /****************Visualizer*****************/
 
-/*const bouton = document.querySelector(".btn");
+const bouton = document.querySelector(".btn");
 const audioElement = document.querySelector("audio");
 const visualizer = document.querySelector(".visualizer");
 
@@ -299,4 +299,4 @@ function loadVisualizer(){
 
 function playMusic(){
     console.log("allo");
-}*/
+}
