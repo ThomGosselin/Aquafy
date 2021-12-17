@@ -34,3 +34,7 @@ a{
 .pageTop{
     display: flex;
 }
+
+.artistDesc{
+    color: var(--color-text);
+}
