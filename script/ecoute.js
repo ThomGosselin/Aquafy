@@ -1,4 +1,5 @@
 var lastclickBtn = sessionStorage.getItem("musicClick");
+var songName = sessionStorage.getItem("songName");
 console.log(lastclickBtn);
 
 
@@ -57,3 +58,14 @@ function loadVisualizer(){
     update();
     
 }
+
+/**************************************************Changement du nom de l'onglet en fonction de la musique***********************************************/
+
+let titlePage = document.querySelector("head title");
+
+
+titlePage.textContent = "Aquafy |"+ songName ;
+
+/**************************************************Changement du nom du texte de bas de page en fonction de la musique***********************************************/
+let musicInfo = document.querySelector(".musicInfo");
+musicInfo.textContent = songName;

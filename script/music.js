@@ -133,10 +133,11 @@ function loadAllMusic(){
     musicContainer.appendChild(newDivMusic);
     newDivMusic.appendChild(linkToListen);
     newDivMusic.appendChild(nomArtist);
-    console.log()
     let ClickMusic = document.querySelector(`.${linkToListen.className}`);
     ClickMusic.addEventListener("click",function(){
         let MusicSrc = "../music/allSongs/"+linkToListen.className+".mp3";
+        let songTitle = linkToListen.className;
+        sessionStorage.setItem("songName", songTitle);
         sessionStorage.setItem("musicClick",MusicSrc);
     });
 }
@@ -211,6 +212,8 @@ function loadDylan(){
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
             let MusicSrc = "../music/DylanMathew/"+linkToListen.className+".mp3";
+            let songTitle = linkToListen.className;
+        sessionStorage.setItem("songName", songTitle);
             sessionStorage.setItem("musicClick",MusicSrc);
         });
     }
@@ -266,6 +269,8 @@ function loadJuice(){
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
             let MusicSrc = "../music/Juice/"+linkToListen.className+".mp3";
+            let songTitle = linkToListen.className;
+        sessionStorage.setItem("songName", songTitle);
             sessionStorage.setItem("musicClick",MusicSrc);
         });
     }
@@ -314,6 +319,8 @@ function loadNCS(){
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
             let MusicSrc = "../music/NCS/"+linkToListen.className+".mp3";
+            let songTitle = linkToListen.className;
+            sessionStorage.setItem("songName", songTitle);
             sessionStorage.setItem("musicClick",MusicSrc);
         });
     }

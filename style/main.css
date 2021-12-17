@@ -17,6 +17,10 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+h1{
+    color: white;
+}
+
 main{
     height: 90vh;
 }
