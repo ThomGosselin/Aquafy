@@ -15,6 +15,7 @@ body{
 *{
     background: var(--color-main);
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 h1{
@@ -33,6 +34,10 @@ a{
 
 .pageTop{
     display: flex;
+}
+
+.artistName{
+    color: var(--color-text);
 }
 
 .artistDesc{

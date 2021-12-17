@@ -2,7 +2,8 @@
 
 :root{
     --color-main: #001538;
-    --color-text: #fff; 
+    --color-text: #fff;
+    --color-secondaryText : #c1c1c1;
 }
 
 body{
@@ -13,12 +14,17 @@ body{
 
 
 h1{
-    color: white;
+    color: var(--color-text);
 }
+h3{
+    color: var(--color-secondaryText);
+}
+
 
 *{
     background: var(--color-main);
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 .imgLogo{
