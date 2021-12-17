@@ -1,13 +1,11 @@
 var lastclickBtn = sessionStorage.getItem("musicClick");
 var songName = sessionStorage.getItem("songName");
-console.log(lastclickBtn);
 
 
 
 const bouton = document.querySelector(".btn");
 const audioElement = document.querySelector("audio");
 audioElement.src= lastclickBtn;
-console.log(audioElement);
 const visualizer = document.querySelector(".visualizer");
 
 bouton.addEventListener("click", e =>{

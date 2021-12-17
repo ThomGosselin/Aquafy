@@ -1,19 +1,29 @@
 let musicContainer = document.querySelector(".musicContainer");
 
-var lastclickBtn = sessionStorage.getItem("artistClick");
-console.log(lastclickBtn);
-if (lastclickBtn =="allMusic"){
-    loadAllMusic();
-}else if (lastclickBtn == "Dylan"){
-    loadDylan();
-}else if (lastclickBtn == "Juice"){
-    loadJuice();
-}else if (lastclickBtn == "NCS"){
-    loadNCS();
+
+let newDivMusic,
+linkToListen,
+nomArtist,
+clickMusic,
+songTitle,
+MusicArray;
+
+switch(lastclickBtn = sessionStorage.getItem("artistClick")){
+    case "Dylan" :
+        loadDylan();
+    break;
+    case "Juice" :
+        loadJuice();
+    break;
+    case "NCS" :
+        loadNCS();
+    break;
+    default: loadAllMusic();
 }
 
 function loadAllMusic(){
-    let allMusicArray= [
+	
+     MusicArray= [
         {
             nom : "Drown",
             nomForCall:"Drown",
@@ -120,32 +130,10 @@ function loadAllMusic(){
         }
     
     ];
-
-    for(i = 1;i < allMusicArray.length;i++) {
-    let newDivMusic = document.createElement("div");
-    let linkToListen = document.createElement("a");
-    let nomArtist = document.createElement("h3");
-    newDivMusic.classList.add("music");
-    linkToListen.href="ecoute.html";
-    linkToListen.classList.add(allMusicArray[i].nomForCall);
-    linkToListen.textContent = allMusicArray[i].nomForCall;
-    nomArtist.textContent = allMusicArray[i].auteur;
-    musicContainer.appendChild(newDivMusic);
-    newDivMusic.appendChild(linkToListen);
-    newDivMusic.appendChild(nomArtist);
-    let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-    ClickMusic.addEventListener("click",function(){
-        let MusicSrc = "../music/allSongs/"+linkToListen.className+".mp3";
-        let songTitle = linkToListen.className;
-        sessionStorage.setItem("songName", songTitle);
-        sessionStorage.setItem("musicClick",MusicSrc);
-    });
+    loadMusic(MusicArray);
 }
-}
-
-
 function loadDylan(){
-    let musicDylan = [
+    MusicArray = [
         {
             nom : "Drown",
             nomForCall:"Drown",
@@ -195,32 +183,10 @@ function loadDylan(){
             selector : "dylan6"  
         }
     ];
-
-    for(i = 0;i < musicDylan.length;i++){
-        let newDivMusic = document.createElement("div");
-        let linkToListen = document.createElement("a");
-        let nomArtist = document.createElement("h3");
-        newDivMusic.classList.add("music");
-        linkToListen.href="ecoute.html";
-        linkToListen.classList.add(musicDylan[i].nomForCall);
-        linkToListen.textContent = musicDylan[i].nomForCall;
-        nomArtist.textContent = musicDylan[i].auteur;
-        musicContainer.appendChild(newDivMusic);
-        newDivMusic.appendChild(linkToListen);
-        newDivMusic.appendChild(nomArtist);
-        console.log()
-        let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-        ClickMusic.addEventListener("click",function(){
-            let MusicSrc = "../music/DylanMathew/"+linkToListen.className+".mp3";
-            let songTitle = linkToListen.className;
-        sessionStorage.setItem("songName", songTitle);
-            sessionStorage.setItem("musicClick",MusicSrc);
-        });
-    }
+ loadMusic(MusicArray);
 }
-
 function loadJuice(){
-    let musicJuiceWrld = [
+    MusicArray = [
         {
             nom : "All girls Are the Same",
             nomForCall:"allGirlsAreTheSame",
@@ -254,31 +220,10 @@ function loadJuice(){
             selector : "juice4"  
         }
     ];
-    for(i = 0;i <= musicJuiceWrld.length;i++){
-        let newDivMusic = document.createElement("div");
-        let linkToListen = document.createElement("a");
-        let nomArtist = document.createElement("h3");
-        newDivMusic.classList.add("music");
-        linkToListen.href="ecoute.html";
-        linkToListen.classList.add(musicJuiceWrld[i].nomForCall);
-        linkToListen.textContent = musicJuiceWrld[i].nomForCall;
-        nomArtist.textContent = musicJuiceWrld[i].auteur;
-        musicContainer.appendChild(newDivMusic);
-        newDivMusic.appendChild(linkToListen);
-        newDivMusic.appendChild(nomArtist);
-        let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-        ClickMusic.addEventListener("click",function(){
-            let MusicSrc = "../music/Juice/"+linkToListen.className+".mp3";
-            let songTitle = linkToListen.className;
-        sessionStorage.setItem("songName", songTitle);
-            sessionStorage.setItem("musicClick",MusicSrc);
-        });
-    }
-    }
-
-
+ loadMusic(MusicArray);
+}
 function loadNCS(){
-    let musicNCS = [
+    MusicArray = [
         {
             nom : "Giants",
             nomForCall:"Giants",
@@ -304,24 +249,31 @@ function loadNCS(){
             selector : "ncs3"  
         }
     ];
-    for(i = 0;i <= musicNCS.length;i++){
-        let newDivMusic = document.createElement("div");
-        let linkToListen = document.createElement("a");
-        let nomArtist = document.createElement("h3");
-        newDivMusic.classList.add("music");
-        linkToListen.href="ecoute.html";
-        linkToListen.classList.add(musicNCS[i].nom);
-        linkToListen.textContent = musicNCS[i].nom;
-        nomArtist.textContent = musicNCS[i].auteur;
-        musicContainer.appendChild(newDivMusic);
-        newDivMusic.appendChild(linkToListen);
-        newDivMusic.appendChild(nomArtist);
-        let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-        ClickMusic.addEventListener("click",function(){
-            let MusicSrc = "../music/NCS/"+linkToListen.className+".mp3";
-            let songTitle = linkToListen.className;
-            sessionStorage.setItem("songName", songTitle);
-            sessionStorage.setItem("musicClick",MusicSrc);
-        });
-    }
+
+    loadMusic(MusicArray);
+  
+}
+
+function loadMusic(MusicArray){
+    for(i = 1;i < MusicArray.length;i++) 
+    {
+    newDivMusic = document.createElement("div");
+    linkToListen = document.createElement("a");
+    nomArtist = document.createElement("h3");
+    newDivMusic.classList.add("music");
+    linkToListen.href="ecoute.html";
+    linkToListen.classList.add(MusicArray[i].nomForCall);
+    linkToListen.textContent = MusicArray[i].nom;
+    nomArtist.textContent = MusicArray[i].auteur;
+    musicContainer.appendChild(newDivMusic);
+    newDivMusic.appendChild(linkToListen);
+    newDivMusic.appendChild(nomArtist);
+    clickMusic = document.querySelector(`.${linkToListen.className}`);
+    clickMusic.addEventListener("click",function(){
+        MusicSrc = "../music/allSongs/"+linkToListen.className+".mp3";
+        songTitle = linkToListen.className;
+        sessionStorage.setItem("songName", songTitle);
+        sessionStorage.setItem("musicClick",MusicSrc);
+    });
+}
 }
