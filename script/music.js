@@ -1,12 +1,21 @@
+/***************************************************************************************************
+Description: Script permettant de charger dans la page les différentes musiques en fonction de l'artiste cliquer dans la page precedente
+
+'LAST UPDATE
+' DATE       AUTHOR			    MODIFICATION
+' ---------- ------------------ ---------------------------------------------------------------------
+' 2021-12-17 Thomas Gosselin 	Optimisation générale du code
+'***************************************************************************************************/
+/**************************************************Déclaration de variables***********************************************/
 let musicContainer = document.querySelector(".musicContainer");
 
 
-let newDivMusic,
-linkToListen,
-nomArtist,
-clickMusic,
-songTitle,
-MusicArray;
+let newDivMusic
+,linkToListen
+,nomArtist
+,clickMusic
+,songTitle
+,MusicArray;
 
 switch(lastclickBtn = sessionStorage.getItem("artistClick")){
     case "Dylan" :

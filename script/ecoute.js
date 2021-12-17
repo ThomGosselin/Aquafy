@@ -1,7 +1,21 @@
+/***************************************************************************************************
+Description: Script créant un effet visuel style "visualizer" qui réagie en fonction de la musique qui est en train de jouer
+
+'LAST UPDATE
+' DATE       AUTHOR			    MODIFICATION
+' ---------- ------------------ ---------------------------------------------------------------------
+' 2021-12-17 Thomas Gosselin 	Optimisation générale du code
+'***************************************************************************************************/
+/**************************************************Declaration des variables***********************************************/
 var lastclickBtn = sessionStorage.getItem("musicClick");
 var songName = sessionStorage.getItem("songName");
 
-
+let dataArray
+,elements
+,ctx
+,item
+,titlePage
+,musicInfo;
 
 const bouton = document.querySelector(".btn");
 const audioElement = document.querySelector("audio");
@@ -16,8 +30,7 @@ bouton.addEventListener("click", e =>{
     bouton.classList.toggle("btn-play");
     bouton.classList.toggle("btn-pause");
 });
-let ctx;
-
+/**************************************************Effect visuel qui reagie en fonction de l'a musique en cours***********************************************/
 function loadVisualizer(){
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     ctx = new window.AudioContext();
@@ -28,8 +41,8 @@ function loadVisualizer(){
     analyser.fftSize = 64;
     const bufferLenght = analyser.frequencyBinCount;
     
-    let dataArray = new Uint8Array(bufferLenght);
-    let elements=[];
+    dataArray = new Uint8Array(bufferLenght);
+    elements=[];
     for(let i=0 ; i< bufferLenght; i++){
         const element = document.createElement('span');
         element.classList.add('element');
@@ -47,7 +60,7 @@ function loadVisualizer(){
         requestAnimationFrame(update);
         analyser.getByteFrequencyData(dataArray);
         for(let i=0; i< bufferLenght; i++){
-            let item = dataArray[i];
+            item = dataArray[i];
             item = item > 150 ? item / 1.5 : item * 1.25;
             elements[i].style.transform = `rotateZ(${i * (400 / bufferLenght)}deg) translate(-50%, ${clamp(item,75, 125)}px)`;
         }
@@ -59,11 +72,11 @@ function loadVisualizer(){
 
 /**************************************************Changement du nom de l'onglet en fonction de la musique***********************************************/
 
-let titlePage = document.querySelector("head title");
+titlePage = document.querySelector("head title");
 
 
 titlePage.textContent = "Aquafy |"+ songName ;
 
 /**************************************************Changement du nom du texte de bas de page en fonction de la musique***********************************************/
-let musicInfo = document.querySelector(".musicInfo");
+musicInfo = document.querySelector(".musicInfo");
 musicInfo.textContent = songName;
