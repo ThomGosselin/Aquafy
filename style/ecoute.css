@@ -86,12 +86,12 @@ h1{
 
 .imgLogo{
     height: auto;
-    width: 15%;
+    width: 5%;
+    
 
 }
 .pageTop{
 display: flex;
-width: 100%;
 }
 
 .musicInfo{
