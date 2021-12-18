@@ -10,13 +10,13 @@ Description: Script permettant de savoir quel artiste parmis la liste a été ch
 var lastclickBtn = sessionStorage.getItem("lastclick");
 
 let clickArtist = document.querySelectorAll(".clickArtist")
-,choice;
+   , choice;
 
 
 /**************************************************Détection de quel artistes est cliquer par data-tag***********************************************/
 clickArtist.forEach(element =>
-   element.addEventListener("click",function(){
+   element.addEventListener("click", function () {
       choice = element.dataset.artist;
       sessionStorage.setItem("artistClick", choice);
    })
-   )
+)

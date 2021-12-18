@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="f1">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,32 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
     <title>Aquafy Acceuil</title>
 </head>
+
 <body>
-    <main>    
+    <main>
         <section class="acceuil">
             <div class="acceuilContent">
                 <h1 class="Title">Aquafy</h1>
                 <div class="buttonContainer">
                     <div class="btnArtiste">
-                        <a href="artiste.html"><img src="img/personnageGris.png" alt="img d'un perso gris" class="imgBtnAccueil allArtiste"></a>
+                        <a href="artiste.html"><img src="img/personnageGris.png" alt="img d'un perso gris"
+                                class="imgBtnAccueil allArtiste"></a>
                         <p>Voir tout les artistes</p>
                     </div>
                     <div class="buttonContainer">
                         <div class="btnMusique">
-                        <a href="musique.html" onclick="(`.${sessionStorage.setItem('artistClick','allMusic')}`)"><img src="img/musiqueGris.png" alt="img d'un perso gris" class="imgBtnAccueil allmusic"></a>
-                        <p>Voir toute les musiques</p>
+                            <a href="musique.html"
+                                onclick="(`.${sessionStorage.setItem('artistClick','allMusic')}`)"><img
+                                    src="img/musiqueGris.png" alt="img d'un perso gris"
+                                    class="imgBtnAccueil allmusic"></a>
+                            <p>Voir toute les musiques</p>
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-  
+
 </body>
+
 </html>
