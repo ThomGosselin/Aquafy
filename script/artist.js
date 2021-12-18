@@ -1,16 +1,22 @@
+/***************************************************************************************************
+Description: Script permettant de savoir quel artiste parmis la liste a été choisi
+
+'LAST UPDATE
+' DATE       AUTHOR			    MODIFICATION
+' ---------- ------------------ ---------------------------------------------------------------------
+' 2021-12-17 Thomas Gosselin 	Optimisation générale du code
+'***************************************************************************************************/
+/**************************************************Déclaration de variables***********************************************/
 var lastclickBtn = sessionStorage.getItem("lastclick");
-console.log(lastclickBtn);
 
-let clickDylan = document.querySelector(".clickDylan");
-let clickJuice = document.querySelector(".clickJuice");
-let clickNCS = document.querySelector(".clickNCS");
+let clickArtist = document.querySelectorAll(".clickArtist")
+,choice;
 
-clickDylan.addEventListener("click",function(){
-    sessionStorage.setItem("artistClick","Dylan");
- });
- clickJuice.addEventListener("click",function(){
-    sessionStorage.setItem("artistClick","Juice");
- });
- clickNCS.addEventListener("click",function(){
-    sessionStorage.setItem("artistClick","NCS");
- });
+
+/**************************************************Détection de quel artistes est cliquer par data-tag***********************************************/
+clickArtist.forEach(element =>
+   element.addEventListener("click",function(){
+      choice = element.dataset.artist;
+      sessionStorage.setItem("artistClick", choice);
+   })
+   )

@@ -26,7 +26,7 @@ switch(lastclickBtn = sessionStorage.getItem("artistClick")){
         loadNCS();
     break;
     default: 
-        URLBase = "../music/DallSongs/"
+        URLBase = "../music/allSongs/"
         loadAllMusic();
 }
 
