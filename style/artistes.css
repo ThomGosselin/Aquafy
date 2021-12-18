@@ -29,13 +29,21 @@ a{
 
 .imgLogo{
     height: auto;
-    width: 5%;
+    width: 15%;
+
 }
 
 .pageTop{
     display: flex;
 }
+.artistContainer{
+    display: flex;
+    justify-content: center;
 
+}
+.artist{
+    width: 100%;
+}
 .artistName{
     color: var(--color-text);
 }
