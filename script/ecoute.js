@@ -1,13 +1,19 @@
+/***************************************************************************************************
+Description: Script créant un effet visuel style "visualizer" qui réagie en fonction de la musique qui est en train de jouer
+'LAST UPDATE
+' DATE       AUTHOR			    MODIFICATION
+' ---------- ------------------ ---------------------------------------------------------------------
+' 2021-12-17 Thomas Gosselin 	Optimisation générale du code
+'***************************************************************************************************/
+/**************************************************Declaration des variables***********************************************/
 var lastclickBtn = sessionStorage.getItem("musicClick");
 var songName = sessionStorage.getItem("songName");
-console.log(lastclickBtn);
 
 
 
 const bouton = document.querySelector(".btn");
 const audioElement = document.querySelector("audio");
 audioElement.src= lastclickBtn;
-console.log(audioElement);
 const visualizer = document.querySelector(".visualizer");
 
 bouton.addEventListener("click", e =>{
@@ -19,7 +25,7 @@ bouton.addEventListener("click", e =>{
     bouton.classList.toggle("btn-pause");
 });
 let ctx;
-
+/**************************************************Effet visualizer***********************************************/
 function loadVisualizer(){
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     ctx = new window.AudioContext();
