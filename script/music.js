@@ -1,15 +1,33 @@
+/***************************************************************************************************
+Description: Script permettant de charger dans la page les différentes musiques en fonction de l'artiste cliquer dans la page precedente
+'LAST UPDATE
+' DATE       AUTHOR			    MODIFICATION
+' ---------- ------------------ ---------------------------------------------------------------------
+' 2021-12-17 Thomas Gosselin 	Optimisation générale du code
+'***************************************************************************************************/
+/**************************************************Déclaration de variables***********************************************/
+
+
 let musicContainer = document.querySelector(".musicContainer");
 
-var lastclickBtn = sessionStorage.getItem("artistClick");
-console.log(lastclickBtn);
-if (lastclickBtn =="allMusic"){
-    loadAllMusic();
-}else if (lastclickBtn == "Dylan"){
-    loadDylan();
-}else if (lastclickBtn == "Juice"){
-    loadJuice();
-}else if (lastclickBtn == "NCS"){
-    loadNCS();
+var lastclickBtn,URLBase
+
+switch(lastclickBtn = sessionStorage.getItem("artistClick")){
+    case "Dylan" :
+        URLBase = "../music/DylanMathew/"
+        loadDylan();    
+    break;
+    case "Juice" :
+        URLBase = "../music/Juice/"
+        loadJuice();
+    break;
+    case "NCS" :
+        URLBase = "../music/ncs/"
+        loadNCS();
+    break;
+    default: 
+        URLBase = "../music/DallSongs/"
+        loadAllMusic();
 }
 
 function loadAllMusic(){
@@ -120,27 +138,8 @@ function loadAllMusic(){
         }
     
     ];
+    loadMusic(allMusicArray)
 
-    for(i = 1;i < allMusicArray.length;i++) {
-    let newDivMusic = document.createElement("div");
-    let linkToListen = document.createElement("a");
-    let nomArtist = document.createElement("h3");
-    newDivMusic.classList.add("music");
-    linkToListen.href="ecoute.html";
-    linkToListen.classList.add(allMusicArray[i].nomForCall);
-    linkToListen.textContent = allMusicArray[i].nomForCall;
-    nomArtist.textContent = allMusicArray[i].auteur;
-    musicContainer.appendChild(newDivMusic);
-    newDivMusic.appendChild(linkToListen);
-    newDivMusic.appendChild(nomArtist);
-    let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-    ClickMusic.addEventListener("click",function(){
-        let MusicSrc = "../music/allSongs/"+linkToListen.className+".mp3";
-        let songTitle = linkToListen.className;
-        sessionStorage.setItem("songName", songTitle);
-        sessionStorage.setItem("musicClick",MusicSrc);
-    });
-}
 }
 
 
@@ -196,27 +195,7 @@ function loadDylan(){
         }
     ];
 
-    for(i = 0;i < musicDylan.length;i++){
-        let newDivMusic = document.createElement("div");
-        let linkToListen = document.createElement("a");
-        let nomArtist = document.createElement("h3");
-        newDivMusic.classList.add("music");
-        linkToListen.href="ecoute.html";
-        linkToListen.classList.add(musicDylan[i].nomForCall);
-        linkToListen.textContent = musicDylan[i].nomForCall;
-        nomArtist.textContent = musicDylan[i].auteur;
-        musicContainer.appendChild(newDivMusic);
-        newDivMusic.appendChild(linkToListen);
-        newDivMusic.appendChild(nomArtist);
-        console.log()
-        let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-        ClickMusic.addEventListener("click",function(){
-            let MusicSrc = "../music/DylanMathew/"+linkToListen.className+".mp3";
-            let songTitle = linkToListen.className;
-        sessionStorage.setItem("songName", songTitle);
-            sessionStorage.setItem("musicClick",MusicSrc);
-        });
-    }
+   loadMusic(musicDylan)
 }
 
 function loadJuice(){
@@ -254,26 +233,8 @@ function loadJuice(){
             selector : "juice4"  
         }
     ];
-    for(i = 0;i <= musicJuiceWrld.length;i++){
-        let newDivMusic = document.createElement("div");
-        let linkToListen = document.createElement("a");
-        let nomArtist = document.createElement("h3");
-        newDivMusic.classList.add("music");
-        linkToListen.href="ecoute.html";
-        linkToListen.classList.add(musicJuiceWrld[i].nomForCall);
-        linkToListen.textContent = musicJuiceWrld[i].nomForCall;
-        nomArtist.textContent = musicJuiceWrld[i].auteur;
-        musicContainer.appendChild(newDivMusic);
-        newDivMusic.appendChild(linkToListen);
-        newDivMusic.appendChild(nomArtist);
-        let ClickMusic = document.querySelector(`.${linkToListen.className}`);
-        ClickMusic.addEventListener("click",function(){
-            let MusicSrc = "../music/Juice/"+linkToListen.className+".mp3";
-            let songTitle = linkToListen.className;
-        sessionStorage.setItem("songName", songTitle);
-            sessionStorage.setItem("musicClick",MusicSrc);
-        });
-    }
+
+    loadMusic(musicJuiceWrld)
     }
 
 
@@ -304,23 +265,29 @@ function loadNCS(){
             selector : "ncs3"  
         }
     ];
-    for(i = 0;i <= musicNCS.length;i++){
+    loadMusic(musicNCS)
+}
+
+
+function loadMusic(MusicArray){
+    for(i = 0;i < MusicArray.length;i++){
         let newDivMusic = document.createElement("div");
         let linkToListen = document.createElement("a");
         let nomArtist = document.createElement("h3");
         newDivMusic.classList.add("music");
         linkToListen.href="ecoute.html";
-        linkToListen.classList.add(musicNCS[i].nom);
-        linkToListen.textContent = musicNCS[i].nom;
-        nomArtist.textContent = musicNCS[i].auteur;
+        linkToListen.classList.add(MusicArray[i].nomForCall);
+        linkToListen.textContent = MusicArray[i].nom;
+        nomArtist.textContent = MusicArray[i].auteur;
         musicContainer.appendChild(newDivMusic);
         newDivMusic.appendChild(linkToListen);
         newDivMusic.appendChild(nomArtist);
+        console.log()
         let ClickMusic = document.querySelector(`.${linkToListen.className}`);
         ClickMusic.addEventListener("click",function(){
-            let MusicSrc = "../music/NCS/"+linkToListen.className+".mp3";
+            let MusicSrc = URLBase+linkToListen.className+".mp3";
             let songTitle = linkToListen.className;
-            sessionStorage.setItem("songName", songTitle);
+        sessionStorage.setItem("songName", songTitle);
             sessionStorage.setItem("musicClick",MusicSrc);
         });
     }
